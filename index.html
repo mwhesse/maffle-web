@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maffle Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +17,8 @@
             <button id="new-game" class="btn">New Maffle</button>
         </div>
         
-        <div id="game-grid" class="grid">
+        <div id="loading" class="loading">Loading puzzles...</div>
+        <div id="game-grid" class="grid hidden">
             <!-- 5x5 grid will be dynamically generated -->
         </div>
         
