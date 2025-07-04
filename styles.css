@@ -56,10 +56,35 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.moves-counter {
+.moves-counter, .difficulty-display {
     font-size: 1.2rem;
+}
+
+.difficulty-display span {
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+}
+
+.difficulty-easy {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--correct);
+}
+
+.difficulty-medium {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: var(--wrong-position);
+}
+
+.difficulty-hard {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: var(--wrong);
 }
 
 .btn {
@@ -254,5 +279,14 @@ h1 {
     
     .cell {
         font-size: 1.2rem;
+    }
+    
+    .game-info {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .moves-counter, .difficulty-display {
+        font-size: 1rem;
     }
 }
