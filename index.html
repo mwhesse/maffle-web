@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Waffle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Equation Waffle</h1>
+        <div class="game-info">
+            <div class="moves-counter">Moves: <span id="moves">0</span></div>
+            <button id="new-game" class="btn">New Game</button>
+        </div>
+        
+        <div id="game-grid" class="grid">
+            <!-- 5x5 grid will be dynamically generated -->
+        </div>
+        
+        <div id="win-message" class="win-message hidden">
+            <h2>Congratulations!</h2>
+            <p>You solved the puzzle in <span id="final-moves"></span> moves!</p>
+            <button id="play-again" class="btn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
