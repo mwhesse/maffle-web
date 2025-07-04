@@ -60,8 +60,24 @@ h1 {
     gap: 1rem;
 }
 
+.puzzle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.puzzle-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
 .moves-counter, .difficulty-display {
     font-size: 1.2rem;
+}
+
+.difficulty-display {
+    font-size: 1rem;
 }
 
 .difficulty-display span {
@@ -248,6 +264,67 @@ h1 {
     font-size: 1.2rem;
 }
 
+.all-completed-message {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(33, 150, 243, 0.1));
+    border-radius: 1rem;
+    border: 2px solid var(--correct);
+    animation: completion-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes completion-glow {
+    from { 
+        box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        border-color: var(--correct);
+    }
+    to { 
+        box-shadow: 0 0 30px rgba(76, 175, 80, 0.5), 0 0 40px rgba(33, 150, 243, 0.3);
+        border-color: #2196f3;
+    }
+}
+
+.completion-celebration h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--correct);
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.completion-celebration p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.completion-stats {
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--correct);
+}
+
+.completion-stats p {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--correct);
+}
+
+.all-completed-message .btn {
+    margin: 0.5rem;
+}
+
+.reset-btn {
+    background-color: var(--wrong) !important;
+}
+
+.reset-btn:hover {
+    background-color: #d32f2f !important;
+}
+
 .confetti {
     position: fixed;
     width: 10px;
@@ -284,6 +361,17 @@ h1 {
     .game-info {
         justify-content: center;
         text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .puzzle-info {
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .puzzle-number {
+        font-size: 1.2rem;
     }
     
     .moves-counter, .difficulty-display {
