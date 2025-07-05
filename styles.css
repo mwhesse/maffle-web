@@ -388,11 +388,22 @@ h1 {
     to { transform: translateY(0); opacity: 1; }
 }
 
+.tutorial-logo {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #fff;
+    font-family: 'Bungee Shade', cursive;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: title-glow 2s ease-in-out infinite alternate;
+}
+
 .tutorial-content h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .tutorial-step {
