@@ -32,6 +32,46 @@
             <p>You solved the puzzle in <span id="final-moves"></span> moves!</p>
             <button id="play-again" class="btn">Play Again</button>
         </div>
+        
+        <div id="tutorial-overlay" class="tutorial-overlay hidden">
+            <div class="tutorial-content">
+                <h2>How to Play Maffle</h2>
+                <div class="tutorial-step" id="step-1">
+                    <div class="step-number">1</div>
+                    <p>Create valid equations both horizontally and vertically</p>
+                    <div class="tutorial-grid-preview">
+                        <div class="equation-example">2 + 3 = 5 ✓</div>
+                    </div>
+                </div>
+                <div class="tutorial-step hidden" id="step-2">
+                    <div class="step-number">2</div>
+                    <p>Drag and drop numbers to swap their positions</p>
+                    <div class="tutorial-animation">
+                        <div class="demo-cell dragging-demo">5</div>
+                        <div class="arrow">→</div>
+                        <div class="demo-cell drop-zone-demo">3</div>
+                    </div>
+                </div>
+                <div class="tutorial-step hidden" id="step-3">
+                    <div class="step-number">3</div>
+                    <p>Colors show your progress:</p>
+                    <div class="color-guide">
+                        <div class="color-example correct">Green = Correct position</div>
+                        <div class="color-example wrong-position">Orange = Right number, wrong spot</div>
+                        <div class="color-example wrong">Red = Wrong position</div>
+                    </div>
+                </div>
+                <div class="tutorial-step hidden" id="step-4">
+                    <div class="step-number">4</div>
+                    <p>Solve the puzzle in 8 moves or less!</p>
+                    <p class="tutorial-tip">💡 Tip: Look for numbers that appear in both equations</p>
+                </div>
+                <div class="tutorial-controls">
+                    <button id="tutorial-skip" class="btn btn-secondary">Skip</button>
+                    <button id="tutorial-next" class="btn">Next</button>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script src="game.js"></script>

@@ -147,21 +147,34 @@ h1 {
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    cursor: pointer;
+    cursor: grab;
     transition: all 0.3s ease;
     user-select: none;
     position: relative;
 }
 
-.grid:not(.game-over) .cell:hover:not(.locked) {
-    transform: scale(1.05);
-    background-color: #3d4671;
+.cell[draggable="true"]:active {
+    cursor: grabbing;
 }
 
-.cell.selected {
-    border-color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.cell.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+    z-index: 1000;
 }
+
+.cell.drop-zone {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.grid:not(.game-over) .cell:hover:not(.locked):not(.dragging) {
+    transform: scale(1.02);
+    background-color: #3d4671;
+    border-color: #6a7aaa;
+}
+
 
 .cell.locked {
     background-color: var(--locked);
@@ -335,6 +348,190 @@ h1 {
     background-color: #d32f2f !important;
 }
 
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.tutorial-overlay.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tutorial-content {
+    background-color: var(--container-bg);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.tutorial-content h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.tutorial-step {
+    margin-bottom: 2rem;
+    animation: stepIn 0.5s ease-out;
+}
+
+@keyframes stepIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--correct);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.tutorial-step p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.tutorial-grid-preview {
+    background-color: var(--cell-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.equation-example {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--correct);
+}
+
+.tutorial-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.demo-cell {
+    width: 60px;
+    height: 60px;
+    background-color: var(--cell-bg);
+    border: 2px solid var(--cell-border);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.dragging-demo {
+    animation: dragDemo 2s ease-in-out infinite;
+}
+
+@keyframes dragDemo {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    50% { transform: translate(30px, -10px) rotate(5deg); opacity: 0.5; }
+}
+
+.drop-zone-demo {
+    animation: dropZoneDemo 2s ease-in-out infinite;
+}
+
+@keyframes dropZoneDemo {
+    0%, 100% { border-color: var(--cell-border); box-shadow: none; }
+    50% { border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); }
+}
+
+.arrow {
+    font-size: 2rem;
+    color: #999;
+}
+
+.color-guide {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.color-example {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.color-example.correct {
+    background-color: var(--correct);
+    color: white;
+}
+
+.color-example.wrong-position {
+    background-color: var(--wrong-position);
+    color: white;
+}
+
+.color-example.wrong {
+    background-color: var(--wrong);
+    color: white;
+}
+
+.tutorial-tip {
+    font-size: 1.1rem;
+    color: #bbb;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.tutorial-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.btn-secondary {
+    background-color: #666;
+}
+
+.btn-secondary:hover {
+    background-color: #777;
+}
+
 .confetti {
     position: fixed;
     width: 10px;
@@ -391,5 +588,22 @@ h1 {
     
     .moves-counter, .difficulty-display {
         font-size: 1rem;
+    }
+    
+    .tutorial-content {
+        padding: 1.5rem;
+    }
+    
+    .tutorial-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .tutorial-step p {
+        font-size: 1rem;
+    }
+    
+    .demo-cell {
+        width: 50px;
+        height: 50px;
     }
 }
