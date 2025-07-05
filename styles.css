@@ -22,6 +22,7 @@ body {
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -561,6 +562,32 @@ h1 {
         transform: translateY(100vh) rotate(720deg);
         opacity: 0;
     }
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+    border-top: 1px solid var(--cell-border);
+    background-color: var(--bg-color);
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.footer a {
+    color: var(--correct);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #45a049;
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
