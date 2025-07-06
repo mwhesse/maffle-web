@@ -544,6 +544,22 @@ h1 {
     background-color: #777;
 }
 
+.floating-tile {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1001;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+    opacity: 0.9;
+    transition: none;
+}
+
 .confetti {
     position: fixed;
     width: 10px;
