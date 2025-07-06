@@ -186,6 +186,13 @@ h1 {
     cursor: not-allowed;
 }
 
+.game-lost .cell {
+    background-color: #555 !important;
+    border-color: #666 !important;
+    color: #999 !important;
+    opacity: 0.6;
+}
+
 .cell.correct {
     background-color: var(--correct);
     border-color: var(--correct);
@@ -546,18 +553,19 @@ h1 {
 
 .floating-tile {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
     z-index: 1001;
-    border-radius: 0.5rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    transform: scale(1.1);
-    opacity: 0.9;
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    transform: scale(1.2);
+    opacity: 0.85;
     transition: none;
+    font-size: 2rem !important;
 }
 
 .confetti {
