@@ -56,10 +56,75 @@ h1 {
     text-align: center;
     font-size: 1.1rem;
     color: #bbb;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-style: italic;
     letter-spacing: 0.5px;
     opacity: 0.9;
+}
+
+.puzzle-progress {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.progress-title {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 0.25rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+.progress-item {
+    aspect-ratio: 1;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 28px;
+    min-height: 28px;
+}
+
+.progress-item.completed {
+    background-color: var(--correct);
+    color: white;
+    border-color: var(--correct);
+}
+
+.progress-item.in-progress {
+    background-color: var(--wrong-position);
+    color: white;
+    border-color: var(--wrong-position);
+}
+
+.progress-item.not-started {
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+    border-color: var(--cell-border);
+}
+
+.progress-item.current {
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.progress-item:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .game-info {
@@ -667,5 +732,16 @@ h1 {
     .demo-cell {
         width: 50px;
         height: 50px;
+    }
+    
+    .progress-grid {
+        gap: 0.15rem;
+        padding: 0 0.25rem;
+    }
+    
+    .progress-item {
+        font-size: 0.65rem;
+        min-width: 20px;
+        min-height: 20px;
     }
 }
