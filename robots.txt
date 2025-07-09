@@ -1,0 +1,11 @@
+# Robots.txt for Maffle.co
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://maffle.co/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
