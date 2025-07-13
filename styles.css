@@ -284,6 +284,7 @@ h1 {
 .cell.locked {
     background-color: var(--locked);
     cursor: not-allowed;
+    font-size: 2rem;
 }
 
 .game-over .cell:not(.locked) {
