@@ -44,7 +44,7 @@
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20250720003526">
+    <link rel="stylesheet" href="styles.css?v=20250720200304">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -103,8 +103,25 @@
         
         <div class="puzzle-progress">
             <div class="progress-title">Today's Progress</div>
-            <div class="progress-grid" id="progress-grid">
-                <!-- Progress indicators will be generated here -->
+            <div class="progress-container">
+                <div class="progress-group">
+                    <div class="progress-group-label">Easy</div>
+                    <div class="progress-group-items" id="progress-easy">
+                        <!-- Easy puzzles 1-5 will be generated here -->
+                    </div>
+                </div>
+                <div class="progress-group">
+                    <div class="progress-group-label">Medium</div>
+                    <div class="progress-group-items" id="progress-medium">
+                        <!-- Medium puzzles 6-10 will be generated here -->
+                    </div>
+                </div>
+                <div class="progress-group">
+                    <div class="progress-group-label">Hard</div>
+                    <div class="progress-group-items" id="progress-hard">
+                        <!-- Hard puzzles 11-15 will be generated here -->
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -174,6 +191,6 @@
         <p>&copy; 2025 <a href="https://maffle.co" target="_blank" rel="noopener">maffle.co</a> - All rights reserved</p>
     </footer>
     
-    <script src="game.js?v=20250720003526"></script>
+    <script src="game.js?v=20250720200304"></script>
 </body>
 </html>

@@ -113,13 +113,67 @@ h1 {
     font-weight: 600;
 }
 
-.progress-grid {
-    display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    gap: 0.25rem;
-    max-width: 100%;
-    margin: 0 auto;
+.progress-container {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.progress-group {
+    position: relative;
+    background-color: rgba(45, 53, 97, 0.3);
+    border: 1px solid var(--cell-border);
+    border-radius: 0;
+    padding: 0.5rem;
+    padding-top: 0.75rem;
+}
+
+.progress-group:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-right: none;
+}
+
+.progress-group:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: none;
+}
+
+.progress-group:nth-child(2) {
+    border-left: 1px solid var(--cell-border);
+    border-right: 1px solid var(--cell-border);
+}
+
+.progress-group-label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--container-bg);
     padding: 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.progress-group:nth-child(1) .progress-group-label {
+    color: var(--correct);
+}
+
+.progress-group:nth-child(2) .progress-group-label {
+    color: var(--wrong-position);
+}
+
+.progress-group:nth-child(3) .progress-group-label {
+    color: var(--wrong);
+}
+
+.progress-group-items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.2rem;
 }
 
 .progress-item {
@@ -133,8 +187,8 @@ h1 {
     border: 1px solid transparent;
     transition: all 0.3s ease;
     cursor: pointer;
-    min-width: 28px;
-    min-height: 28px;
+    min-width: 26px;
+    min-height: 26px;
 }
 
 .progress-item.completed {
@@ -780,8 +834,43 @@ h1 {
     }
     
     .progress-item {
+        font-size: 0.6rem;
+        min-width: 18px;
+        min-height: 18px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .progress-group-items {
+        gap: 0.15rem;
+    }
+    
+    .progress-container {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    
+    .progress-group {
+        padding: 0.3rem;
+        padding-top: 0.5rem;
+        width: auto;
+        max-width: 100%;
+        border-radius: 0 !important;
+        border: 1px solid var(--cell-border) !important;
+        border-bottom: none !important;
+    }
+    
+    .progress-group:first-child {
+        border-radius: 0.5rem 0.5rem 0 0 !important;
+    }
+    
+    .progress-group:last-child {
+        border-radius: 0 0 0.5rem 0.5rem !important;
+        border-bottom: 1px solid var(--cell-border) !important;
+    }
+    
+    .progress-group-label {
         font-size: 0.65rem;
-        min-width: 20px;
-        min-height: 20px;
+        top: -8px;
     }
 }
