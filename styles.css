@@ -226,10 +226,203 @@ h1 {
 .game-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
+    position: relative;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-panel {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(45, 53, 97, 0.4) 0%, rgba(45, 53, 97, 0.2) 100%);
+    border: 1px solid rgba(74, 85, 131, 0.5);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.5), transparent);
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.panel-header {
+    background: rgba(74, 85, 131, 0.3);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #999;
+    border-bottom: 1px solid rgba(74, 85, 131, 0.5);
+}
+
+.panel-content {
+    padding: 0.75rem;
+}
+
+.puzzle-panel .panel-content {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    height: 80px;
+}
+
+.puzzle-id {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+    padding: 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.puzzle-id::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.02) 10px,
+        rgba(255, 255, 255, 0.02) 20px
+    );
+    animation: stripes 20s linear infinite;
+}
+
+@keyframes stripes {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(28px); }
+}
+
+.difficulty-indicator {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.difficulty-indicator::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, currentColor, transparent, currentColor);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.difficulty-indicator::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes sweep {
+    0%, 100% { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% { 
+        transform: translateX(0%);
+        opacity: 0.3;
+    }
+}
+
+.difficulty-indicator.difficulty-easy {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.4));
+    color: #fff;
+    text-shadow: 0 0 20px var(--correct);
+}
+
+.difficulty-indicator.difficulty-medium {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.4));
+    color: #fff;
+    text-shadow: 0 0 20px var(--wrong-position);
+}
+
+.difficulty-indicator.difficulty-hard {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.4));
+    color: #fff;
+    text-shadow: 0 0 20px var(--wrong);
+}
+
+.moves-display {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.moves-separator {
+    opacity: 0.5;
+    margin: 0 0.25rem;
+}
+
+.moves-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.moves-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 11px
+    );
+}
+
+.moves-progress {
+    height: 100%;
+    background: var(--correct);
+    transition: width 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 10px currentColor;
 }
 
 .puzzle-info {
@@ -795,23 +988,37 @@ h1 {
     }
     
     .game-info {
-        justify-content: center;
-        text-align: center;
         flex-direction: column;
-        align-items: center;
+        gap: 0.75rem;
     }
     
-    .puzzle-info {
-        align-items: center;
-        margin-bottom: 0.5rem;
+    .info-panel {
+        width: 100%;
     }
     
-    .puzzle-number {
-        font-size: 1.2rem;
+    .panel-header {
+        font-size: 0.65rem;
     }
     
-    .moves-counter, .difficulty-display {
-        font-size: 1rem;
+    .panel-content {
+        padding: 0.5rem;
+    }
+    
+    .puzzle-panel .panel-content {
+        height: 50px;
+    }
+    
+    .puzzle-id {
+        font-size: 1.8rem;
+    }
+    
+    .difficulty-indicator {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .moves-display {
+        font-size: 1.5rem;
     }
     
     .tutorial-content {

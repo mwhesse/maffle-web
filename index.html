@@ -44,7 +44,7 @@
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20250720202039">
+    <link rel="stylesheet" href="styles.css?v=20250720204851">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -126,11 +126,26 @@
         </div>
         
         <div class="game-info">
-            <div class="puzzle-info">
-                <div class="puzzle-number">Maffle <span id="puzzle-number">1</span></div>
-                <div class="difficulty-display">Difficulty: <span id="difficulty">-</span></div>
+            <div class="info-panel puzzle-panel">
+                <div class="panel-header">PUZZLE</div>
+                <div class="panel-content">
+                    <span class="puzzle-id">#<span id="puzzle-number">1</span></span>
+                    <span class="difficulty-indicator" id="difficulty">-</span>
+                </div>
             </div>
-            <div class="moves-counter">Moves: <span id="moves">0/8</span></div>
+            <div class="info-panel moves-panel">
+                <div class="panel-header">MOVES</div>
+                <div class="panel-content">
+                    <div class="moves-display">
+                        <span class="moves-current" id="moves-current">0</span>
+                        <span class="moves-separator">/</span>
+                        <span class="moves-max">8</span>
+                    </div>
+                    <div class="moves-bar">
+                        <div class="moves-progress" id="moves-progress"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div id="loading" class="loading">Loading puzzles...</div>
@@ -190,6 +205,6 @@
         <p>&copy; 2025 <a href="https://maffle.co" target="_blank" rel="noopener">maffle.co</a> - All rights reserved</p>
     </footer>
     
-    <script src="game.js?v=20250720202039"></script>
+    <script src="game.js?v=20250720204851"></script>
 </body>
 </html>
