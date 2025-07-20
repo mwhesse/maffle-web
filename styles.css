@@ -133,16 +133,19 @@ h1 {
 .progress-group:first-child {
     border-radius: 0.5rem 0 0 0.5rem;
     border-right: none;
+    border-bottom: 1px solid var(--cell-border);
 }
 
 .progress-group:last-child {
     border-radius: 0 0.5rem 0.5rem 0;
     border-left: none;
+    border-bottom: 1px solid var(--cell-border);
 }
 
 .progress-group:nth-child(2) {
     border-left: 1px solid var(--cell-border);
     border-right: 1px solid var(--cell-border);
+    border-bottom: 1px solid var(--cell-border);
 }
 
 .progress-group-label {
@@ -848,25 +851,6 @@ h1 {
     .progress-container {
         flex-wrap: wrap;
         gap: 0;
-    }
-    
-    .progress-group {
-        padding: 0.3rem;
-        padding-top: 0.5rem;
-        width: auto;
-        max-width: 100%;
-        border-radius: 0 !important;
-        border: 1px solid var(--cell-border) !important;
-        border-bottom: none !important;
-    }
-    
-    .progress-group:first-child {
-        border-radius: 0.5rem 0.5rem 0 0 !important;
-    }
-    
-    .progress-group:last-child {
-        border-radius: 0 0 0.5rem 0.5rem !important;
-        border-bottom: 1px solid var(--cell-border) !important;
     }
     
     .progress-group-label {
